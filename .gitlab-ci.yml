@@ -1,0 +1,138 @@
+variables:
+  HOST: inforser.cl
+  STAGE_USER: stage
+  PRODUCTION_USER: production
+  PROJECT_PATH: xbrl/client
+
+image: oven/bun:1.1.15-alpine
+
+cache:
+  key: "${CI_COMMIT_REF_SLUG}"
+  paths:
+    - node_modules/
+    - dist/
+    - bun.lockb
+    - .scannerwork/
+    - coverage/
+
+stages:
+  - prepare
+  - check
+  - build
+  - stage
+  - production
+  # - test
+
+prepare:
+  stage: prepare
+  script:
+    - bun install
+  artifacts:
+    paths:
+      - node_modules/
+      - bun.lockb
+
+depcheck:
+  stage: check
+  script:
+    - bun run check
+  needs: ["prepare"]
+
+# eslint:
+#   stage: check
+#   script:
+#     - bun lint:fix
+#   needs: ["prepare"]
+
+build:
+  stage: build
+  script:
+    - bun run build
+  artifacts:
+    paths:
+      - .next/
+  needs: ["prepare"]
+
+deploy_stage:
+  stage: stage
+  image: instrumentisto/rsync-ssh:alpine3.19-r1
+  environment:
+    name: stage
+  only:
+    - stage
+  before_script:
+    - eval "$(ssh-agent -s)"
+    - echo "$SSH_PRIVATE_KEY_STAGE" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - echo "$SSH_KNOWN_HOSTS_STAGE" > ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+  script:
+    - |
+      ssh $STAGE_USER@$HOST "
+        set -e
+        echo 'Cleaning directory'
+        rm -rf /home/$STAGE_USER/$PROJECT_PATH
+        echo 'Cloning repository'
+        git clone  https://oauth2:$ACCESS_TOKEN@gitlab.inforser.cl/niif/$PROJECT_PATH.git /home/$STAGE_USER/$PROJECT_PATH
+        echo 'Changing directory to /home/$STAGE_USER/$PROJECT_PATH'
+        cd /home/$STAGE_USER/$PROJECT_PATH
+        echo 'Checking out stage branch'
+        git checkout stage
+        echo 'Copying environment files'
+        cp .env.stage .env
+        cp docker-compose.stage.yml docker-compose.yml
+        echo 'Cleaning old files'
+        rm .env.production .env.stage .env.development docker-compose.prod.yml docker-compose.stage.yml
+        echo 'Stopping running containers'
+        docker compose down
+        echo 'Pruning unused Docker images'
+        docker image prune -a -f
+        echo 'Building containers'
+        docker compose build --no-cache
+        echo 'Starting containers'
+        docker compose up -d
+      "
+  needs: ["build"]
+
+deploy_production:
+  stage: production
+  image: instrumentisto/rsync-ssh:alpine3.19-r1
+  environment:
+    name: production
+  only:
+    - production
+  before_script:
+    - eval "$(ssh-agent -s)"
+    - echo "$SSH_PRIVATE_KEY_PRODUCTION" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - echo "$SSH_KNOWN_HOSTS_PRODUCTION" > ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+  script:
+    - |
+      ssh $PRODUCTION_USER@$HOST "
+        set -e
+        echo 'Cleaning directory'
+        rm -rf /home/$PRODUCTION_USER/$PROJECT_PATH
+        echo 'Cloning repository'
+        git clone  https://oauth2:$ACCESS_TOKEN@gitlab.inforser.cl/niif/$PROJECT_PATH.git /home/$PRODUCTION_USER/$PROJECT_PATH
+        echo 'Changing directory to /home/$PRODUCTION_USER/$PROJECT_PATH'
+        cd /home/$PRODUCTION_USER/$PROJECT_PATH
+        echo 'Checking out production branch'
+        git checkout production
+        echo 'Copying environment files'
+        cp .env.production .env
+        cp docker-compose.prod.yml docker-compose.yml
+        echo 'Cleaning old files'
+        rm .env.production .env.stage .env.development docker-compose.prod.yml docker-compose.stage.yml
+        echo 'Stopping running containers'
+        docker compose down
+        echo 'Pruning unused Docker images'
+        docker image prune -a -f
+        echo 'Building containers'
+        docker compose build --no-cache
+        echo 'Starting containers'
+        docker compose up -d
+      "
+  needs: ["build"]

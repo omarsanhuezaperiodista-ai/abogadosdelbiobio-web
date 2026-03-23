@@ -1,0 +1,24 @@
+services:
+  abogadosdelbiobio:
+    image: abogadosdelbiobio-webpage
+    networks:
+      - swarm-proxy
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    volumes:
+      - /volumes/abogadosdelbiobio/uploads:/app/public/uploads
+      - /volumes/abogadosdelbiobio/db:/app/db
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.abogadosdelbiobio.entrypoints=websecure"
+      - "traefik.http.routers.abogadosdelbiobio.service=abogadosdelbiobio"
+      - "traefik.http.routers.abogadosdelbiobio.rule=Host(`abogadosdelbiobio.cl`) || Host(`www.abogadosdelbiobio.cl`)"
+      - "traefik.http.routers.abogadosdelbiobio.tls=true"
+      - "traefik.http.routers.abogadosdelbiobio.tls.certresolver=letsencrypt"
+      - "traefik.http.services.abogadosdelbiobio.loadbalancer.server.port=3000"
+
+networks:
+  swarm-proxy:
+    external: true

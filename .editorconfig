@@ -1,0 +1,10 @@
+# Configuración de EditorConfig
+
+# Define que todos los archivos utilizarán LF como saltos de línea
+[*]
+end_of_line = CRLF
+
+# Define la sangría para todos los archivos como 2 espacios
+[*]
+indent_style = space
+indent_size = 2

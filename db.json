@@ -1,0 +1,62 @@
+{
+  "users": [
+    {
+      "id": "360a7169-d0ed-458a-adf1-dd9d6b5daf08",
+      "name": "Admin inforser",
+      "email": "admin@inforser.cl",
+      "password": "$2a$10$jNmBMwS3UI1OywqdaoyDvOPBEsZulcLXqOEKdNA0bZmpfBwTbVLU."
+    },
+    {
+      "id": "30a07188-1b41-4c0d-a5d5-da85c7c52d7c",
+      "name": "Admin",
+      "email": "helio.medell@gmail.com",
+      "password": "$2a$10$BColnIbbEJLvVlB7TNazWO2KOLqGQYOPLwTYdthrBYYzyJG9lUZQG"
+    }
+  ],
+  "blogs": [
+    {
+      "title": "blog prueba",
+      "image": "/uploads/acf0a8f457598831331ddce00.png",
+      "date": "2026-03-23T18:42:51.342Z",
+      "author": "AUTOR TEST",
+      "content": "contenido mas largo de prueba",
+      "description": "una breve descripcion",
+      "postId": "42fa63d8-846b-48ae-a8d3-b78054abdea2"
+    },
+    {
+      "title": "blog 2",
+      "image": "/uploads/acf0a8f457598831331ddce01.png",
+      "date": "2026-03-23T18:46:32.856Z",
+      "author": "test2",
+      "content": "sskdfs asdas",
+      "description": "asdsasd",
+      "postId": "e2da7b15-70e4-47e4-a773-12d7ef679260"
+    }
+  ],
+  "consultas": [
+    {
+      "id": "bd7e664b-afbb-4f4e-916f-818aa9397bd8",
+      "fecha": "24-03-2026 16:00",
+      "tipoConsulta": "familiar",
+      "nombre": "javier",
+      "correo": "admi@asd.com",
+      "telefono": "12312312",
+      "valor": 30000,
+      "token": "",
+      "flowOrder": 0,
+      "estado": "pendiente"
+    },
+    {
+      "id": "5c01b3ce-04f5-4a9f-8156-40ad5fae3059",
+      "fecha": "24-03-2026 14:00",
+      "tipoConsulta": "familiar",
+      "nombre": "javier",
+      "correo": "admin@gmail.com",
+      "telefono": "12312312",
+      "valor": 30000,
+      "token": "",
+      "flowOrder": 0,
+      "estado": "pendiente"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+version: "3"
+services:
+  abogadosdelbiobio:
+    build: .
+    restart: always
+    network_mode: "reverse-proxy"
+    container_name: abogadosdelbiobio
+    volumes:
+      - ../volumes/uploads:/app/public/uploads
+      - ../volumes/db:/app/db
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.abogadosdelbiobio.entrypoints=websecure"
+      - "traefik.http.routers.abogadosdelbiobio.service=abogadosdelbiobio"
+      - "traefik.http.routers.abogadosdelbiobio.rule=Host(`abogadosdelbiobio.cl`) || Host(`www.abogadosdelbiobio.cl`)"
+      - "traefik.http.routers.abogadosdelbiobio.tls=true"
+      - "traefik.http.routers.abogadosdelbiobio.tls.certresolver=letsencrypt"
+      - "traefik.http.services.abogadosdelbiobio.loadbalancer.server.port=3000"
