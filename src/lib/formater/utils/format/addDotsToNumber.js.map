@@ -1,0 +1,1 @@
+{"version":3,"file":"addDotsToNumber.js","sourceRoot":"","sources":["../../../src/utils/format/addDotsToNumber.ts"],"names":[],"mappings":";;;AAAA;;;;;GAKG;AACI,IAAM,eAAe,GAAG,UAAC,MAAc;IAC5C,OAAO,IAAI,CAAC,KAAK,CAAC,MAAM,CAAC;SACtB,QAAQ,EAAE;SACV,OAAO,CAAC,uBAAuB,EAAE,GAAG,CAAC,CAAC;AAC3C,CAAC,CAAC;AAJW,QAAA,eAAe,mBAI1B"}
