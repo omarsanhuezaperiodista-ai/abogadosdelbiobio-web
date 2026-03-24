@@ -3,10 +3,6 @@
 import React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import EmailIcon from '@mui/icons-material/Email';
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import FacebookIcon from '@mui/icons-material/Facebook';
 
 export const Header: React.FC<{ isLoggedIn: boolean }> = ({ isLoggedIn }) => {
   const router = useRouter();
@@ -32,6 +28,8 @@ export const Header: React.FC<{ isLoggedIn: boolean }> = ({ isLoggedIn }) => {
       <div className="header-logo-area">
         <div className="container">
           <div className="row align-items-center">
+
+            {/* LOGO */}
             <div className="col-lg-3 col-md-12">
               <div className="site-branding">
                 <Link href="/" passHref>
@@ -44,141 +42,68 @@ export const Header: React.FC<{ isLoggedIn: boolean }> = ({ isLoggedIn }) => {
               </div>
             </div>
 
-            <div className="col-lg-9 col-md-12" style={{ display: 'flex', alignItems: 'center' }}>
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  width: '100%',
-                  gap: '20px',
-                  flexWrap: 'wrap',
-                }}
-              >
-                <nav
-                  className="main-menu"
+            {/* MENÚ AL LADO DEL LOGO */}
+            <div className="col-lg-9 col-md-12">
+              <nav className="main-menu">
+                <ul
                   style={{
                     display: 'flex',
+                    gap: '25px',
+                    margin: 0,
+                    padding: 0,
+                    listStyle: 'none',
                     alignItems: 'center',
                   }}
                 >
-                  <ul
-                    style={{
-                      display: 'flex',
-                      gap: '25px',
-                      margin: 0,
-                      padding: 0,
-                      listStyle: 'none',
-                      flexWrap: 'wrap',
-                    }}
-                  >
+                  <li className="menu-item">
+                    <Link href="/">Inicio</Link>
+                  </li>
+
+                  <li className="menu-item">
+                    <Link href="/blog">Blog</Link>
+                  </li>
+
+                  {isLoggedIn && (
                     <li className="menu-item">
-                      <Link href="/">Inicio</Link>
+                      <Link href="/blog/list">Editor de blog</Link>
                     </li>
-                    <li className="menu-item">
-                      <Link href="/blog">Blog</Link>
-                    </li>
-                    {isLoggedIn && (
-                      <li className="menu-item">
-                        <Link href="/blog/list">Editor de blog</Link>
-                      </li>
+                  )}
+
+                  <li className="menu-item">
+                    <Link href="/contact">Contacto</Link>
+                  </li>
+
+                  <li className="menu-item">
+                    {isLoggedIn ? (
+                      <a
+                        onClick={handleLogout}
+                        style={{ color: 'red', cursor: 'pointer' }}
+                      >
+                        Salir
+                      </a>
+                    ) : (
+                      <Link href="/auth">Login</Link>
                     )}
-                    <li className="menu-item">
-                      <Link href="/contact">Contacto</Link>
-                    </li>
-                    <li className="menu-item">
-                      {isLoggedIn ? (
-                        <a onClick={handleLogout} style={{ color: 'red', cursor: 'pointer' }}>
-                          Salir
-                        </a>
-                      ) : (
-                        <Link href="/auth">Login</Link>
-                      )}
-                    </li>
-                  </ul>
-                </nav>
-                
-                    <li>
-                      <div className="icon">
-                        <a href="https://wa.me/56974999596">
-                          <WhatsAppIcon />
-                        </a>
-                      </div>
-                      <div className="info">
-                        <span className="title">Whatsapp</span>
-                        <h6>
-                          <a href="https://wa.me/56974999596">(+569)74999596</a>
-                        </h6>
-                      </div>
-                    </li>
-
-                    <li>
-                      <div className="icon">
-                        <a href="mailto:helio.medell@gmail.com">
-                          <EmailIcon />
-                        </a>
-                      </div>
-                      <div className="info">
-                        <span className="title">Email</span>
-                        <h6>
-                          <a href="mailto:helio.medell@gmail.com">helio.medell@gmail.com</a>
-                        </h6>
-                      </div>
-                    </li>
-
-                    <li>
-                      <div className="icon">
-                        <a href="https://www.instagram.com/abogadolitigante_/">
-                          <InstagramIcon />
-                        </a>
-                      </div>
-                      <div className="info">
-                        <span className="title">Instagram</span>
-                        <h6>
-                          <a href="https://www.instagram.com/abogadolitigante_/">
-                            abogadolitigante_
-                          </a>
-                        </h6>
-                      </div>
-                    </li>
-
-                    <li>
-                      <div className="icon">
-                        <a href="https://www.facebook.com/medelabogados">
-                          <FacebookIcon />
-                        </a>
-                      </div>
-                      <div className="info">
-                        <span className="title">Facebook</span>
-                        <h6>
-                          <a href="https://www.facebook.com/medelabogados">medelabogados</a>
-                        </h6>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+                  </li>
+                </ul>
+              </nav>
             </div>
+
           </div>
         </div>
       </div>
 
+      {/* BOTONES ABAJO (AGENDAR / ESTADO) */}
       <div className="header-navigation">
         <div className="container">
           <div className="navigation-wrapper">
             <div className="row align-items-center">
+
               <div className="col-lg-8 col-4">
-                <div className="primary-menu">
-                  <div className="nav-menu">
-                    <div className="navbar-close">
-                      <i className="far fa-times" />
-                    </div>
-                  </div>
-                  <div className="navbar-toggler">
-                    <span />
-                    <span />
-                    <span />
-                  </div>
+                <div className="navbar-toggler">
+                  <span />
+                  <span />
+                  <span />
                 </div>
               </div>
 
@@ -195,21 +120,19 @@ export const Header: React.FC<{ isLoggedIn: boolean }> = ({ isLoggedIn }) => {
                         Estado
                       </Link>
                     </li>
-                    <li className="off-nav-btn">
-                      <div className="off-menu">
-                        <span />
-                        <span />
-                        <span />
-                      </div>
-                    </li>
                   </ul>
                 </div>
               </div>
+
             </div>
           </div>
         </div>
       </div>
     </header>
+  );
+};
+
+export default Header;
   );
 };
 
