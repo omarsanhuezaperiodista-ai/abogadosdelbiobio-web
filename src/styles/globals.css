@@ -166,3 +166,16 @@ section {
     color-scheme: dark;
   }
 }
+.footer-area {
+  padding: 0 !important;
+}
+
+.footer-area h6 {
+  margin-bottom: 2px;
+  font-size: 14px;
+}
+
+.footer-area p {
+  margin: 0;
+  font-size: 13px;
+}
