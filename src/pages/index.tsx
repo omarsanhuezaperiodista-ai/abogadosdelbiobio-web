@@ -72,7 +72,7 @@ export default function Home() {
                     style={{
                       marginBottom: "18px",
                       lineHeight: "1.1",
-                      fontSize: "64px",
+                      fontSize: "44px",
                     }}
                   >
                     Abogados del Bío Bío
