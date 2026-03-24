@@ -31,7 +31,7 @@ export default function Home() {
         <div
           className="hero-wrpper-two bg-with-overlay bg_cover"
           style={{
-            backgroundImage: "url(/static/assets/images/hero/Diseño sin título (3).png)",
+            backgroundImage: "url(/static/assets/images/hero/hero-two-bg-1.jpg)",
             minHeight: "520px",
             paddingTop: "40px",
             paddingBottom: "40px",
@@ -115,7 +115,7 @@ export default function Home() {
                 }}
               >
                 <img
-                  src="/static/assets/images/hero/hero-two-img-1.png"
+                  src="/static/assets/images/hero/Diseño sin título (3).png"
                   alt="Hero"
                   style={{
                     maxWidth: "100%",
