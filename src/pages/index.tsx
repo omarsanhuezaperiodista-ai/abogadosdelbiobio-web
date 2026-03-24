@@ -115,7 +115,7 @@ export default function Home() {
                 }}
               >
                 <img
-                  src="/static/assets/images/hero/Diseño sin título (5).png"
+                  src="/static/assets/images/hero/Diseño sin título (6).png"
                   alt="Hero"
                   style={{
                     maxWidth: "100%",
