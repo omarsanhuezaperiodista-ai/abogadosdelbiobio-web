@@ -28,8 +28,6 @@ export const Header: React.FC<{ isLoggedIn: boolean }> = ({ isLoggedIn }) => {
       <div className="header-logo-area">
         <div className="container">
           <div className="row align-items-center">
-
-            {/* LOGO */}
             <div className="col-lg-3 col-md-12">
               <div className="site-branding">
                 <Link href="/" passHref>
@@ -42,7 +40,6 @@ export const Header: React.FC<{ isLoggedIn: boolean }> = ({ isLoggedIn }) => {
               </div>
             </div>
 
-            {/* MENÚ AL LADO DEL LOGO */}
             <div className="col-lg-9 col-md-12">
               <nav className="main-menu">
                 <ul
@@ -58,27 +55,20 @@ export const Header: React.FC<{ isLoggedIn: boolean }> = ({ isLoggedIn }) => {
                   <li className="menu-item">
                     <Link href="/">Inicio</Link>
                   </li>
-
                   <li className="menu-item">
                     <Link href="/blog">Blog</Link>
                   </li>
-
                   {isLoggedIn && (
                     <li className="menu-item">
                       <Link href="/blog/list">Editor de blog</Link>
                     </li>
                   )}
-
                   <li className="menu-item">
                     <Link href="/contact">Contacto</Link>
                   </li>
-
                   <li className="menu-item">
                     {isLoggedIn ? (
-                      <a
-                        onClick={handleLogout}
-                        style={{ color: 'red', cursor: 'pointer' }}
-                      >
+                      <a onClick={handleLogout} style={{ color: 'red', cursor: 'pointer' }}>
                         Salir
                       </a>
                     ) : (
@@ -88,17 +78,14 @@ export const Header: React.FC<{ isLoggedIn: boolean }> = ({ isLoggedIn }) => {
                 </ul>
               </nav>
             </div>
-
           </div>
         </div>
       </div>
 
-      {/* BOTONES ABAJO (AGENDAR / ESTADO) */}
       <div className="header-navigation">
         <div className="container">
           <div className="navigation-wrapper">
             <div className="row align-items-center">
-
               <div className="col-lg-8 col-4">
                 <div className="navbar-toggler">
                   <span />
@@ -123,16 +110,11 @@ export const Header: React.FC<{ isLoggedIn: boolean }> = ({ isLoggedIn }) => {
                   </ul>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
       </div>
     </header>
-  );
-};
-
-export default Header;
   );
 };
 
