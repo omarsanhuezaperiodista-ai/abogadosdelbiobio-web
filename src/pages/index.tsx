@@ -132,55 +132,6 @@ export default function Home() {
       </section>
 
       <section id="quienes-somos" style={{ marginTop: "100px" }}>
-  <div className="cta-area cta-area-one" style={{ marginBottom: "0px" }}>
-    <div className="container">
-      <div className="row cta-wrapper-one">
-        <div className="col-lg-6">
-          <div className="cta-item text-center fadeInUp" data-wow-delay=".3s">
-            <div
-              className="cta-overlay bg_cover"
-              style={{ backgroundImage: "url(static/assets/images/bg/counter-bg-1.jpg)" }}
-            />
-            <div className="cta-content">
-              <h2>Misión</h2>
-              <p>
-                Ser un estudio de abogados reconocido por su alta calidad en la asistencia
-                jurídica y la profesionalidad de sus miembros, brindando seguridad y confianza
-                a través de soluciones integrales y adecuadas a las necesidades de cada cliente,
-                con el compromiso del éxito en sus negocios. Asimismo, lograr la realización
-                personal y profesional de los miembros del Estudio, dentro de los más altos
-                estándares éticos y de excelencia.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-lg-6">
-          <div
-            style={{ height: "100%" }}
-            className="cta-item text-center fadeInUp"
-            data-wow-delay=".3s"
-          >
-            <div
-              className="cta-overlay bg_cover"
-              style={{ backgroundImage: "url(static/assets/images/cta/cta-card-1.jpg)" }}
-            />
-            <div className="cta-content">
-              <h2>Visión</h2>
-              <p>
-                Ser un estudio jurídico líder en el mercado legal chileno, consolidando su
-                crecimiento con experiencia y eficiencia profesional, ofreciendo un servicio
-                integral de calidad en asesoría y consultoría legal, con reconocido prestigio
-                por sus valores y eficacia demostrada.
-              </p>
-              <p />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
         <div className="cta-area cta-area-one" style={{ marginBottom: "0px" }}>
           <div className="container">
             <div className="row cta-wrapper-one">
@@ -339,6 +290,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
+
             <div className="col-lg-6 col-md-6 col-sm-12">
               <div
                 style={{ height: "100%" }}
@@ -362,6 +314,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
+
             <div className="col-lg-6 col-md-6 col-sm-12">
               <div className="service-item service-item-two text-center wow fadeInUp" data-wow-delay=".35s">
                 <div
@@ -384,6 +337,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
+
             <div className="col-lg-6 col-md-6 col-sm-12">
               <div
                 style={{ height: "100%" }}
@@ -448,6 +402,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+
               <div className="col-lg-3 col-md-6 col-sm-12">
                 <div className="team-item team-item-one mb-40 wow fadeInUp" data-wow-delay=".30s">
                   <div className="team-img">
@@ -468,6 +423,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+
               <div className="col-lg-3 col-md-6 col-sm-12">
                 <div className="team-item team-item-one mb-40 wow fadeInUp" data-wow-delay=".35s">
                   <div className="team-img">
@@ -488,6 +444,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+
               <div className="col-lg-3 col-md-6 col-sm-12">
                 <div className="team-item team-item-one mb-40 wow fadeInUp" data-wow-delay=".40s">
                   <div className="team-img">
@@ -531,6 +488,7 @@ export default function Home() {
                   </p>
                 </div>
               </div>
+
               <div className="col-lg-6">
                 <div
                   className="play-content-img bg_cover wow fadeInRight"
