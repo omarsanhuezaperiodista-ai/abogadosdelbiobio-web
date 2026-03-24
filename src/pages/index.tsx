@@ -33,20 +33,28 @@ export default function Home() {
           style={{
             backgroundImage: "url(/static/assets/images/hero/hero-two-bg-1.jpg)",
             minHeight: "520px",
+            paddingTop: "40px",
+            paddingBottom: "40px",
             display: "flex",
             alignItems: "center",
-            paddingTop: "30px",
-            paddingBottom: "30px",
           }}
         >
           <div className="container" style={{ width: "100%" }}>
             <div
-              className="row"
               style={{
+                display: "flex",
                 alignItems: "center",
+                justifyContent: "space-between",
+                gap: "40px",
+                flexWrap: "wrap",
               }}
             >
-              <div className="col-lg-7">
+              <div
+                style={{
+                  flex: "1 1 520px",
+                  minWidth: "280px",
+                }}
+              >
                 <div
                   className="hero-content"
                   style={{
@@ -97,29 +105,26 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="col-lg-5">
-                <div
-                  className="hero-img wow fadeInRight"
-                  data-wow-delay=".90s"
+              <div
+                style={{
+                  flex: "1 1 380px",
+                  minWidth: "280px",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "flex-end",
+                }}
+              >
+                <img
+                  src="/static/assets/images/hero/hero-two-img-1.png"
+                  alt="Hero"
                   style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "flex-end",
-                    paddingTop: "0px",
-                    marginTop: "30px",
+                    maxWidth: "100%",
+                    width: "100%",
+                    height: "auto",
+                    maxHeight: "430px",
+                    objectFit: "contain",
                   }}
-                >
-                  <img
-                    src="/static/assets/images/hero/hero-two-img-1.png"
-                    alt="Hero"
-                    style={{
-                      maxWidth: "100%",
-                      height: "auto",
-                      maxHeight: "430px",
-                      objectFit: "contain",
-                    }}
-                  />
-                </div>
+                />
               </div>
             </div>
           </div>
