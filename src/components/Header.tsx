@@ -30,7 +30,7 @@ export const Header: React.FC<{ isLoggedIn: boolean }> = ({ isLoggedIn }) => {
           <div className="row align-items-center">
             <div className="col-lg-3 col-md-12">
               <div className="site-branding">
-                <Link href="/" passHref>
+                <Link href="/" passHref scroll>
                   <img
                     style={{ height: '100%' }}
                     src="/static/assets/images/logo/logo.jpg"
@@ -54,7 +54,7 @@ export const Header: React.FC<{ isLoggedIn: boolean }> = ({ isLoggedIn }) => {
                   }}
                 >
                   <li className="menu-item">
-                    <Link href="/">Inicio</Link>
+                    <Link href="/#quienes-somos">¿Quiénes Somos?</Link>
                   </li>
 
                   <li className="menu-item">
