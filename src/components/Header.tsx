@@ -28,8 +28,6 @@ export const Header: React.FC<{ isLoggedIn: boolean }> = ({ isLoggedIn }) => {
       <div className="header-logo-area">
         <div className="container">
           <div className="row align-items-center">
-
-            {/* LOGO */}
             <div className="col-lg-3 col-md-12">
               <div className="site-branding">
                 <Link href="/" passHref>
@@ -42,18 +40,17 @@ export const Header: React.FC<{ isLoggedIn: boolean }> = ({ isLoggedIn }) => {
               </div>
             </div>
 
-            {/* MENÚ */}
             <div className="col-lg-9 col-md-12">
               <nav className="main-menu">
                 <ul
                   style={{
                     display: 'flex',
-                    gap: '25px',
+                    gap: '35px',
                     margin: 0,
                     padding: 0,
                     listStyle: 'none',
                     alignItems: 'center',
-                    justifyContent: 'flex-start',
+                    justifyContent: 'center',
                   }}
                 >
                   <li className="menu-item">
@@ -89,7 +86,6 @@ export const Header: React.FC<{ isLoggedIn: boolean }> = ({ isLoggedIn }) => {
                 </ul>
               </nav>
             </div>
-
           </div>
         </div>
       </div>
