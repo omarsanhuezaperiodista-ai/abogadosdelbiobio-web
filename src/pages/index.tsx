@@ -41,12 +41,10 @@ export default function Home() {
                   </p>
                   <p className="experience" style={{ fontSize: ' 19px ' }}>
                     {' '}
-                    Somos un estudio jurídico especializado en el gran Concepción
-                    en el derecho privado, respaldados por una sólida trayectoria en litigación
-                    ante los tribunales de nuestro país, nuestra misión es otorgarle al cliente
-                    una correcta y oportuna asesoría y servicio legal personalizado según los
-                    requerimientos de su caso con el propósito de obtener una justicia
-                    reparadora acorde a las pretensiones de nuestros usuarios.
+                    Estudio jurídico en Concepción, especializado en litigación y asesoría legal.
+                    Representación directa, atención personalizada y compromiso real en cada caso.
+                    Oficina ubicada frente a tribunales.
+                    Agenda tu consulta por WhatsApp.
                   </p>
                 </div>
               </div>
