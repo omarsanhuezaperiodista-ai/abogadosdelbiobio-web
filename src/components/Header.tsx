@@ -97,18 +97,7 @@ export const Header: React.FC<{ isLoggedIn: boolean }> = ({ isLoggedIn }) => {
                     </li>
                   </ul>
                 </nav>
-
-                <div className="site-info" style={{ display: 'flex', flex: 1 }}>
-                  <ul
-                    className="info-list"
-                    style={{
-                      width: '100%',
-                      display: 'flex',
-                      justifyContent: 'flex-end',
-                      flexWrap: 'wrap',
-                      gap: '15px',
-                    }}
-                  >
+                
                     <li>
                       <div className="icon">
                         <a href="https://wa.me/56974999596">
