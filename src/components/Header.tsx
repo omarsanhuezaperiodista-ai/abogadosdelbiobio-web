@@ -18,7 +18,7 @@ export const Header: React.FC<{ isLoggedIn: boolean }> = ({ isLoggedIn }) => {
       });
 
       if (response.ok) {
-        router.push('/'); // Redirigir a la página de inicio después de cerrar sesión
+        router.push('/');
       } else {
         console.error('Failed to logout');
       }
@@ -31,61 +31,149 @@ export const Header: React.FC<{ isLoggedIn: boolean }> = ({ isLoggedIn }) => {
     <header className="header-area-one">
       <div className="header-logo-area">
         <div className="container">
-          <div className="row">
-            <div className="col-lg-3 col-md-2">
+          <div className="row align-items-center">
+            <div className="col-lg-3 col-md-12">
               <div className="site-branding">
                 <Link href="/" passHref>
-                  <img style={{ height: '100%' }} src="/static/assets/images/logo/logo.jpg" alt="abogados" />
+                  <img
+                    style={{ height: '100%' }}
+                    src="/static/assets/images/logo/logo.jpg"
+                    alt="abogados"
+                  />
                 </Link>
               </div>
             </div>
-            <div className="col-lg-9 col-md-10" style={{ display: 'flex' }}>
-              <div className="site-info" style={{ display: 'flex', width: '100%' }}>
-                <ul className="info-list">
-                  <li>
-                    <div className="icon">
-                      <a href="https://wa.me/56974999596">
-                        <WhatsAppIcon />
-                      </a>
-                    </div>
-                    <div className="info">
-                      <span className="title">Whatsapp</span>
-                      <h6><a href="https://wa.me/56974999596">(+569)74999596</a></h6>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="icon">
-                      <a href="mailto:helio.medell@gmail.com"><EmailIcon /></a>
-                    </div>
-                    <div className="info">
-                      <span className="title">Email</span>
-                      <h6><a href="mailto:helio.medell@gmail.com">helio.medell@gmail.com</a></h6>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="icon">
-                      <a href="https://www.instagram.com/abogadolitigante_/"><InstagramIcon /></a>
-                    </div>
-                    <div className="info">
-                      <span className="title">Instagram</span>
-                      <h6><a href="https://www.instagram.com/abogadolitigante_/">abogadolitigante_</a></h6>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="icon">
-                      <a href="https://www.facebook.com/medelabogados"><FacebookIcon /></a>
-                    </div>
-                    <div className="info">
-                      <span className="title">Facebook</span>
-                      <h6><a href="https://www.facebook.com/medelabogados">medelabogados</a></h6>
-                    </div>
-                  </li>
-                </ul>
+
+            <div className="col-lg-9 col-md-12" style={{ display: 'flex', alignItems: 'center' }}>
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  width: '100%',
+                  gap: '20px',
+                  flexWrap: 'wrap',
+                }}
+              >
+                <nav
+                  className="main-menu"
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                  }}
+                >
+                  <ul
+                    style={{
+                      display: 'flex',
+                      gap: '25px',
+                      margin: 0,
+                      padding: 0,
+                      listStyle: 'none',
+                      flexWrap: 'wrap',
+                    }}
+                  >
+                    <li className="menu-item">
+                      <Link href="/">Inicio</Link>
+                    </li>
+                    <li className="menu-item">
+                      <Link href="/blog">Blog</Link>
+                    </li>
+                    {isLoggedIn && (
+                      <li className="menu-item">
+                        <Link href="/blog/list">Editor de blog</Link>
+                      </li>
+                    )}
+                    <li className="menu-item">
+                      <Link href="/contact">Contacto</Link>
+                    </li>
+                    <li className="menu-item">
+                      {isLoggedIn ? (
+                        <a onClick={handleLogout} style={{ color: 'red', cursor: 'pointer' }}>
+                          Salir
+                        </a>
+                      ) : (
+                        <Link href="/auth">Login</Link>
+                      )}
+                    </li>
+                  </ul>
+                </nav>
+
+                <div className="site-info" style={{ display: 'flex', flex: 1 }}>
+                  <ul
+                    className="info-list"
+                    style={{
+                      width: '100%',
+                      display: 'flex',
+                      justifyContent: 'flex-end',
+                      flexWrap: 'wrap',
+                      gap: '15px',
+                    }}
+                  >
+                    <li>
+                      <div className="icon">
+                        <a href="https://wa.me/56974999596">
+                          <WhatsAppIcon />
+                        </a>
+                      </div>
+                      <div className="info">
+                        <span className="title">Whatsapp</span>
+                        <h6>
+                          <a href="https://wa.me/56974999596">(+569)74999596</a>
+                        </h6>
+                      </div>
+                    </li>
+
+                    <li>
+                      <div className="icon">
+                        <a href="mailto:helio.medell@gmail.com">
+                          <EmailIcon />
+                        </a>
+                      </div>
+                      <div className="info">
+                        <span className="title">Email</span>
+                        <h6>
+                          <a href="mailto:helio.medell@gmail.com">helio.medell@gmail.com</a>
+                        </h6>
+                      </div>
+                    </li>
+
+                    <li>
+                      <div className="icon">
+                        <a href="https://www.instagram.com/abogadolitigante_/">
+                          <InstagramIcon />
+                        </a>
+                      </div>
+                      <div className="info">
+                        <span className="title">Instagram</span>
+                        <h6>
+                          <a href="https://www.instagram.com/abogadolitigante_/">
+                            abogadolitigante_
+                          </a>
+                        </h6>
+                      </div>
+                    </li>
+
+                    <li>
+                      <div className="icon">
+                        <a href="https://www.facebook.com/medelabogados">
+                          <FacebookIcon />
+                        </a>
+                      </div>
+                      <div className="info">
+                        <span className="title">Facebook</span>
+                        <h6>
+                          <a href="https://www.facebook.com/medelabogados">medelabogados</a>
+                        </h6>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
       <div className="header-navigation">
         <div className="container">
           <div className="navigation-wrapper">
@@ -93,34 +181,9 @@ export const Header: React.FC<{ isLoggedIn: boolean }> = ({ isLoggedIn }) => {
               <div className="col-lg-8 col-4">
                 <div className="primary-menu">
                   <div className="nav-menu">
-                    <div className="navbar-close"><i className="far fa-times" /></div>
-                    <nav className="main-menu">
-                      <ul>
-                        <li className="menu-item">
-                          <Link href="/">Inicio</Link>
-                        </li>
-                        <li className="menu-item">
-                          <Link href="/blog">Blog</Link>
-                        </li>
-                        {
-                          isLoggedIn && (
-                            <li className="menu-item">
-                              <Link href="/blog/list">Editor de blog</Link>
-                            </li>
-                          )
-                        }
-                        <li className="menu-item">
-                          <Link href="/contact">Contacto</Link>
-                        </li>
-                        <li className="menu-item">
-                          {isLoggedIn ? (
-                            <a onClick={handleLogout} style={{ color: 'red', cursor: 'pointer' }}>Salir</a>
-                          ) : (
-                            <Link href="/auth">Login</Link>
-                          )}
-                        </li>
-                      </ul>
-                    </nav>
+                    <div className="navbar-close">
+                      <i className="far fa-times" />
+                    </div>
                   </div>
                   <div className="navbar-toggler">
                     <span />
@@ -129,6 +192,7 @@ export const Header: React.FC<{ isLoggedIn: boolean }> = ({ isLoggedIn }) => {
                   </div>
                 </div>
               </div>
+
               <div className="col-lg-4 col-8">
                 <div className="header-right-nav d-flex align-items-center">
                   <ul>
