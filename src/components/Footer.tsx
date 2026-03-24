@@ -1,57 +1,81 @@
 import React from 'react';
-import LastestNews from './Blog/LastestNews';
 
 export const Footer: React.FC = () => (
-  <footer className="footer-area">
-    <div className="footer-wrapper-one position-relative bg_cover pb-30" style={{ backgroundImage: 'url(/static/assets/images/bg/footer-bg-1.jpg)' }}>
-      <div className="container">
-        <div className="footer-widget pt-80 pb-20">
-          <div className="row">
-            <div className='col-lg-6' />
-            <div className="col-lg-3 col-md-6 col-sm-12">
-              <div className="widget recent-post-widget mb-60 wow fadeInUp">
-                <h4 className="widget-title">Ultimas entradas</h4>
-                <LastestNews />
-              </div>
-            </div>
-            <div className="col-lg-3 col-md-6 col-sm-12">
-              <div className="widget contact-info-widget mb-55 wow fadeInUp" data-wow-delay=".5s">
-                <h4 className="widget-title">Contacto</h4>
-                <div className="info-widget-content mb-10">
-                  <p>
-                    <i className="fal fa-phone" />
-                    <a href="tel:+56974999596">+569 74999596</a>
-                  </p>
-                  <p>
-                    <i className="fal fa-envelope" />
-                    <a href="mailto:helio.medell@gmail.com">helio.medell@gmail.com</a>
-                  </p>
-                  <p>
-                    <i className="fal fa-map-marker-alt" />
-                    TUCAPEL 452, OFICINA 815, CONCEPCIÓN.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+  <footer
+    style={{
+      background: '#0f172a',
+      color: '#fff',
+      padding: '25px 0',
+      position: 'fixed',
+      bottom: 0,
+      width: '100%',
+      zIndex: 999,
+    }}
+  >
+    <div className="container">
+      <div
+        style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          gap: '20px',
+          textAlign: 'center',
+        }}
+      >
+
+        {/* WHATSAPP */}
+        <div>
+          <strong>WhatsApp</strong><br />
+          <a href="https://wa.me/56974999596" style={{ color: '#25D366' }}>
+            +56 9 7499 9596
+          </a>
         </div>
-        <div className="footer-copyright">
-          <div className="row">
-            <div className="col-lg-12">
-              <div className="copyright-text text-center">
-                <p>
-                  &copy;2024
-                  {' '}
-                  <span>Abogados digitales Bío Bío</span>
-                  {' '}
-                  Desarollado por
-                  {' '}
-                  <a href='https://www.inforser.cl'>INFORSER</a>
-                </p>
-              </div>
-            </div>
-          </div>
+
+        {/* EMAIL */}
+        <div>
+          <strong>Email</strong><br />
+          <a href="mailto:helio.medell@gmail.com" style={{ color: '#fff' }}>
+            helio.medell@gmail.com
+          </a>
         </div>
+
+        {/* INSTAGRAM */}
+        <div>
+          <strong>Instagram</strong><br />
+          <a
+            href="https://www.instagram.com/abogadolitigante_/"
+            target="_blank"
+            style={{ color: '#E1306C' }}
+          >
+            @abogadolitigante_
+          </a>
+        </div>
+
+        {/* FACEBOOK */}
+        <div>
+          <strong>Facebook</strong><br />
+          <a
+            href="https://www.facebook.com/medelabogados"
+            target="_blank"
+            style={{ color: '#1877F2' }}
+          >
+            medelabogados
+          </a>
+        </div>
+
+        {/* DIRECCIÓN */}
+        <div>
+          <strong>Dirección</strong><br />
+          Tucapel 452, Of. 815<br />
+          Concepción
+        </div>
+
+      </div>
+
+      {/* COPYRIGHT */}
+      <div style={{ marginTop: '15px', textAlign: 'center', fontSize: '13px' }}>
+        © 2026 Abogados del Bío Bío
       </div>
     </div>
   </footer>
