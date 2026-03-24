@@ -24,33 +24,100 @@ export default function Home() {
 
     fetchLatestBlogs();
   }, []);
+
   return (
     <>
-      <section className="hero-area">
-        <div className="hero-wrpper-two bg-with-overlay bg_cover" style={{ backgroundImage: 'url(/static/assets/images/hero/hero-two-bg-1.jpg)' }}>
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-8">
-                <div className="hero-content">
-                  <span className="span wow fadeInUp" data-wow-delay=".5s">Bienvenido a</span>
-                  <h1 className="wow fadeInDown" data-wow-delay=".7s">
+      <section className="hero-area" style={{ marginTop: 0 }}>
+        <div
+          className="hero-wrpper-two bg-with-overlay bg_cover"
+          style={{
+            backgroundImage: 'url(/static/assets/images/hero/hero-two-bg-1.jpg)',
+            minHeight: '620px',
+            display: 'flex',
+            alignItems: 'flex-start',
+            paddingTop: '70px',
+            paddingBottom: '40px',
+          }}
+        >
+          <div className="container" style={{ width: '100%' }}>
+            <div
+              className="row"
+              style={{
+                alignItems: 'flex-start',
+              }}
+            >
+              <div className="col-lg-7">
+                <div
+                  className="hero-content"
+                  style={{
+                    paddingTop: '10px',
+                  }}
+                >
+                  <span
+                    className="span wow fadeInUp"
+                    data-wow-delay=".5s"
+                    style={{
+                      display: 'inline-block',
+                      marginBottom: '14px',
+                      fontSize: '18px',
+                    }}
+                  >
+                    Bienvenido a
+                  </span>
+
+                  <h1
+                    className="wow fadeInDown"
+                    data-wow-delay=".7s"
+                    style={{
+                      marginBottom: '24px',
+                      lineHeight: '1.05',
+                    }}
+                  >
                     Abogados del Bío Bío
                   </h1>
-                  <p>
-                    {' '}
-                  </p>
-                  <p className="experience" style={{ fontSize: ' 19px ' }}>
-                    {' '}
+
+                  <p style={{ margin: 0 }} />
+
+                  <p
+                    className="experience"
+                    style={{
+                      fontSize: '32px',
+                      lineHeight: '1.6',
+                      maxWidth: '980px',
+                      marginTop: '10px',
+                      color: '#ffffff',
+                    }}
+                  >
                     Estudio jurídico en Concepción, especializado en litigación y asesoría legal.
+                    <br />
                     Representación directa, atención personalizada y compromiso real en cada caso.
-                    Oficina ubicada frente a tribunales.
-                    Agenda tu consulta por WhatsApp.
+                    <br />
+                    Oficina ubicada frente a tribunales. Agenda tu consulta por WhatsApp.
                   </p>
                 </div>
               </div>
-              <div className="col-lg-4">
-                <div className="hero-img wow fadeInRight" data-wow-delay=".90s">
-                  <img src="/static/assets/images/hero/hero-two-img-1.png" alt="Hero Imageee" />
+
+              <div className="col-lg-5">
+                <div
+                  className="hero-img wow fadeInRight"
+                  data-wow-delay=".90s"
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'flex-start',
+                    paddingTop: '0px',
+                  }}
+                >
+                  <img
+                    src="/static/assets/images/hero/hero-two-img-1.png"
+                    alt="Hero Imageee"
+                    style={{
+                      maxWidth: '100%',
+                      height: 'auto',
+                      maxHeight: '560px',
+                      objectFit: 'contain',
+                    }}
+                  />
                 </div>
               </div>
             </div>
@@ -310,7 +377,7 @@ export default function Home() {
                   <div className="team-img">
                     <img src="/static/assets/images/case/case-9.jpg" alt="Team" />
                     <div className="team-overlay">
-                      <div className="button text-center mb-30 mt-30 wow fadeInUp" data-wow-delay=".50s">
+                      <div className="button text-center mb-30 mt-30 wow.fadeInUp" data-wow-delay=".50s">
                         <Link href="/agendarConsulta" className="main-btn">Agendar</Link>
                       </div>
                     </div>
@@ -406,3 +473,4 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
     },
   };
 };
+ need to replace this whole file please. the thing is text not showing because footer fixed overlays. Need complete file maybe add bottom margin? But user wants hero visible. Actually footer fixed overlays bottom of viewport; easiest is footer not fixed. But user wanted persistent while scrolling. Yet now it's hiding content. Could instead add enough top padding? no, if fixed footer overlays lower part, still hero visible maybe if hero content starts too low. Better put hero section minheight smaller and align content to top. The code already does this. But on screenshot after previous attempts, text missing entirely, perhaps because CSS global moved hero-content too far with margin-top?? But user now asks replace whole file. Could provide full file with hero-content explicitly marginTop and wrapper minHeight 420 etc. Since footer overlay stays. Also could add bottom padding inside hero wrapper to accommodate footer overlay and text. And maybe image smaller and align bottom. Let's craft concise. Mention replace whole file. There may still be CSS overrides from global. But can inline style with !important not possible. Could perhaps use style marginTop:'-120px' but screenshot indicates text not visible at all maybe because background section starts under footer due fixed and content lower. Let's make hero wrapper minHeight 420, paddingTop 10, content marginTop 20, row align items center. Also maybe add position relative zIndex. Let's provide full file only as requested.
